@@ -13,16 +13,20 @@ public class Main {
         String installFile = filePath + "/ghost/content/install.rdf";
         String projectFile = filePath + "/build/ghost.rdf";
         String contentDir = filePath + "/ghost/content/";
-        raiseBuildVersion(installFile);
-        raiseBuildVersion(projectFile);
-        buildFile(contentDir, "ghost.xpi");
 
-        installFile = filePath + "/ghost - online/content/install.rdf";
-        projectFile = filePath + "/build/ghost-online.rdf";
-        contentDir = filePath + "/ghost - online/content/";
-        raiseBuildVersion(installFile);
-        raiseBuildVersion(projectFile);
-        buildFile(contentDir, "ghost-online.xpi");
+        if ( args[0].equals("local") ) {
+            raiseBuildVersion(installFile);
+            raiseBuildVersion(projectFile);
+            buildFile(contentDir, "ghost.xpi");
+        }
+        else if ( args[0].equals("online") ) {
+            installFile = filePath + "/ghost - online/content/install.rdf";
+            projectFile = filePath + "/build/ghost-online.rdf";
+            contentDir = filePath + "/ghost - online/content/";
+            raiseBuildVersion(installFile);
+            raiseBuildVersion(projectFile);
+            buildFile(contentDir, "ghost-online.xpi");
+        }
     }
 
     public static void raiseBuildVersion(String fileName) {

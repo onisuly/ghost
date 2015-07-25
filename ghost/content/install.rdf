@@ -4,7 +4,7 @@
     <Description about="urn:mozilla:install-manifest">
         <em:id>ghost@oni</em:id>
         <em:name>Ghost?</em:name>
-        <em:version>1.0.3</em:version>
+        <em:version>1.0.4</em:version>
         <em:creator>oni</em:creator>
         <em:homepageURL>https://github.com/onisuly/ghost</em:homepageURL>
         <em:description>Ghost!</em:description>
