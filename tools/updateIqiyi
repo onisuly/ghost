@@ -1,0 +1,5 @@
+#!/usr/bin/env python2
+
+import os
+os.system("wget %s -O ../ghost/content/content/swf/iqiyi5.swf" % ("http://playbeta.net/swf/iqiyi5.swf") )
+os.system("wget %s -O ../ghost/content/content/swf/iqiyi_out.swf" % ("http://playbeta.net/swf/iqiyi_out.swf") )
