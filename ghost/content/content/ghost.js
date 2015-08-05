@@ -161,6 +161,15 @@ ghost.prototype = {
     },
     // getPlayer, get modified player
     getPlayer: function(site, callback) {
+        //ADD for BLOCKING
+        if(site['player'] == 'BLOCK') {
+        //Something for later?
+                if(typeof callback === 'function') {
+                        callback();
+                }
+                return;
+        }
+
         NetUtil.asyncFetch(site['player'], function(inputStream, status) {
             var binaryOutputStream = Cc['@mozilla.org/binaryoutputstream;1']
                                         .createInstance(Ci['nsIBinaryOutputStream']);
@@ -233,9 +242,20 @@ ghost.prototype = {
                 if(!site['storageStream'] || !site['count']) {
                     http.suspend();
                     this.getPlayer(site, function() {
-                        http.resume();
+                        //ADD for BLOCKING
+                        if(site['player'] == 'BLOCK')
+                        {
+                                //Something for later?
+                                var consoleService = Components.classes["@mozilla.org/consoleservice;1"]
+                                        .getService(Components.interfaces.nsIConsoleService);
+                                consoleService.logStringMessage("BLOCKING");
+                        }
+                        else
+                        {
+                                http.resume();
+                        }
                         if(typeof site['callback'] === 'function')
-                            site['callback'].apply(fn, args);
+                                site['callback'].apply(fn, args);
                     });
                 }
 
