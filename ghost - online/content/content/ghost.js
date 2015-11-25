@@ -44,27 +44,27 @@ ghost.prototype = {
             'player': 'http://playbeta.net/swf/sp.swf',
             're': /http:\/\/js\.tudouui\.com\/.*\/socialplayer[^\.]*\.swf/i
         },
-		'letv': {
-            'player': 'http://playbeta.net/swf/letv.swf',
-            're': /http:\/\/.*letv[\w]*\.com\/(hz|.*?\/((?!(Live|seed|Disk))(S(?!SDK)[\w]{2,3})?(?!Live)[\w]{4}|swf))Player\.swf/i
-	    },
+        'letv': {
+                'player': 'http://playbeta.net/swf/letv.swf',
+                're': /http:\/\/.*letv[\w]*\.com\/(hz|.*\/((?!(Live|seed|Disk))(SDK)?(?!Live)[\w]{4}|swf))Player*\.swf/i
+        },
         'letv_live': {
             'player': 'http://playbeta.net/swf/letvlive.swf',
             're': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/\d+\/newplayer\/LivePlayer\.swf/i
         },
-        'letvskin': {
-            'player': 'http://player.letvcdn.com/p/201407/24/15/newplayer/1/SSLetvPlayer.swf',
-            're': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/(?!15)\d*\/newplayer\/\d+\/S?SLetvPlayer\.swf/i
+        'letvpccs': {
+                'player': 'http://www.letv.com/cmsdata/playerapi/pccs_sdk_20141113.xml',
+                're': /http:\/\/www.letv.com\/.*\/playerapi\/pccs_(?!(.*live|sdk)).*_?(\d+)\.xml/i
         },
         'pptv': {
             'player': 'http://playbeta.net/swf/pptv.swf',
             're': /http:\/\/player.pplive.cn\/ikan\/.*\/player4player2\.swf/i
         },
-		'pplive': {
+        'pplive': {
             'player': 'http://playbeta.net/swf/pptvLive.swf',
             're': /http:\/\/player.pplive.cn\/live\/.*\/player4live2\.swf/i
         },
-		'sohu': {
+        'sohu': {
            'player': 'http://playbeta.net/swf/sohulive.swf',
            're': /http:\/\/tv\.sohu\.com\/upload\/swf\/(?!(ap|56)).*\d+\/(main|PlayerShell)\.swf/i
         },
@@ -72,51 +72,51 @@ ghost.prototype = {
            'player': 'http://playbeta.net/swf/sohulive.swf',
            're': /http:\/\/\d+\.\d+\.\d+\.\d+(:\d+)?(\/test)?\/(testplayer|player|webplayer)\/(main|main\d|playershell)\.swf/i
         },
-		'pps': {
+        'pps': {
             'player': 'http://playbeta.net/swf/pps.swf',
             're': /http:\/\/www\.iqiyi\.com\/player\/cupid\/.*\/pps[\w]+.swf/i
         },
-		'ppsiqiyi': {
+        'ppsiqiyi': {
             'player': 'http://playbeta.net/swf/iqiyi_out.swf',
             're': /http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/PPSMainPlayer.*\.swf/i
-		},	
-		'ppslive': {
+        },  
+        'ppslive': {
             'player': 'http://www.iqiyi.com/player/20140613210124/livePlayer.swf',
             're': /http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/am.*\.swf/i
-		},		
+        },      
         '17173': {
             'player': 'http://playbeta.net/swf/17173_Player_file.swf',
-            're': /http:\/\/f\.v\.17173cdn\.com\/\d+\/flash\/Player_file\.swf/i			                
-		},
+            're': /http:\/\/f\.v\.17173cdn\.com\/\d+\/flash\/Player_file\.swf/i                         
+        },
         '17173_out': {
             'player': 'http://playbeta.net/swf/17173_Player_file_out.swf',
-  	    're': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_file_(custom)?out\.swf/i
-     	},			
-	    '17173_stream_customOut': {
+        're': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_file_(custom)?out\.swf/i
+        },          
+        '17173_stream_customOut': {
             'player': 'http://playbeta.net/swf/17173_Player_stream_out.swf',
-  	    're': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_stream_(custom)?Out\.swf/i
-	    },			
+        're': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_stream_(custom)?Out\.swf/i
+        },          
         '17173_live': {
             'player': 'http://playbeta.net/swf/17173_Player_stream.swf',
             're': /http:\/\/f\.v\.17173cdn\.com\/\d+\/flash\/Player_stream(_firstpage)?\.swf/i
         },
-		'baiduAD': {
+        'baiduAD': {
             'player': 'http://playbeta.net/swf/baiduAD.swf',
-		    're': /http:\/\/list\.video\.baidu\.com\/swf\/advPlayer\.swf/i
-		}
+            're': /http:\/\/list\.video\.baidu\.com\/swf\/advPlayer\.swf/i
+        }
     },
-	FILTERS: {
-	    'qq': {
+    FILTERS: {
+        'qq': {
             'player': 'http://livep.l.qq.com/livemsg',
             're': /http:\/\/livew\.l\.qq\.com\/livemsg\?/i
         }
-	},
-	DOMAINS: {
+    },
+    DOMAINS: {
     'iqiyi': {
       'host': 'http://www.iqiyi.com/',
       're': /http:\/\/.*\.qiyi\.com/i
       },
-	'youku': {
+    'youku': {
       'host': 'http://www.youku.com/',
       're': /http:\/\/.*\.youku\.com/i
       }
@@ -210,7 +210,7 @@ ghost.prototype = {
         return null;
     },
     observe: function(aSubject, aTopic, aData) {
-	    if (aTopic == "http-on-modify-request") {
+        if (aTopic == "http-on-modify-request") {
     var httpReferer = aSubject.QueryInterface(Ci.nsIHttpChannel);
     for (var i in this.DOMAINS) {
       var domain = this.DOMAINS[i];
@@ -222,11 +222,11 @@ ghost.prototype = {
         } catch (e) {}
       }
     }
-	
+    
         if(aTopic != 'http-on-examine-response') return;
 
         var http = aSubject.QueryInterface(Ci.nsIHttpChannel);
-				
+                
         var aVisitor = new HttpHeaderVisitor();
         http.visitResponseHeaders(aVisitor);
         if (!aVisitor.isFlash()) return;
@@ -277,11 +277,11 @@ ghost.prototype = {
     register: function() {
         this.init();
         this.os.addObserver(this, 'http-on-examine-response', false);
-		this.os.addObserver(this, "http-on-modify-request", false);
+        this.os.addObserver(this, "http-on-modify-request", false);
     },
     unregister: function() {
         this.os.removeObserver(this, 'http-on-examine-response', false);
-		this.os.removeObserver(this, "http-on-modify-request", false);
+        this.os.removeObserver(this, "http-on-modify-request", false);
     }
 };
 
