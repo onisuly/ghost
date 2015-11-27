@@ -65,11 +65,11 @@ ghost.prototype = {
             're': /http:\/\/player.pplive.cn\/live\/.*\/player4live2\.swf/i
         },
         'sohu': {
-           'player': 'chrome://ghost/content/swf/sohulive.swf',
+           'player': 'chrome://ghost/content/swf/sohu_live.swf',
            're': /http:\/\/tv\.sohu\.com\/upload\/swf\/(?!(ap|56)).*\d+\/(main|PlayerShell)\.swf/i
         },
         'sohu_liv': {
-           'player': 'chrome://ghost/content/swf/sohulive.swf',
+           'player': 'chrome://ghost/content/swf/sohu_live.swf',
            're': /http:\/\/\d+\.\d+\.\d+\.\d+(:\d+)?(\/test)?\/(testplayer|player|webplayer)\/(main|main\d|playershell)\.swf/i
         },
         'pps': {
