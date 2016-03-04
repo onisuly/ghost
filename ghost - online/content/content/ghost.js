@@ -29,8 +29,8 @@ ghost.prototype = {
         'iqiyi': {
             'player0': 'http://playbeta.net/swf/iqiyi_out.swf',
             'player1': 'http://playbeta.net/swf/iqiyi5.swf',
-            'player2': 'http://playbeta.net/swf/iqiyi_out.swf',
-            're': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/(Main|Coop|Share|Enjoy)?Player_?.+)\.swf/i
+            'player2': 'http://playbeta.net/swf/iqiyi.swf',
+            're': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/((Main)?Player_.*|1355f98c2359))\.swf/i
         },
         'tudou': {
             'player': 'http://playbeta.net/swf/tudou.swf',
@@ -53,8 +53,8 @@ ghost.prototype = {
             're': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/\d+\/newplayer\/LivePlayer\.swf/i
         },
         'letvpccs': {
-                'player': 'http://www.letv.com/cmsdata/playerapi/pccs_sdk_20141113.xml',
-                're': /http:\/\/www.letv.com\/.*\/playerapi\/pccs_(?!(.*live|sdk)).*_?(\d+)\.xml/i
+                'player': 'http://www.le.com/cmsdata/playerapi/pccs_sdk_20141113.xml',
+                're': /http:\/\/www\.le(tv)?\.com\/.*\/playerapi\/pccs_(?!(.*live|sdk)).*_?(\d+)\.xml/i
         },
         'pptv': {
             'player': 'http://playbeta.net/swf/pptv.swf',
