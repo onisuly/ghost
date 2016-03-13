@@ -8,48 +8,50 @@ var EXPORTED_SYMBOLS = ["ghost"];
 Cu.import("resource://gre/modules/NetUtil.jsm");
 
 function ghost() {};
+var refD = "http://playbeta.net/swf/";
+//var refD = "http://minggo.coding.io/swf/";
 ghost.prototype = {
     SITES: {
         'youku_loader': {
-            'player': 'http://playbeta.net/swf/loader.swf',
+            'player': refD + 'loader.swf',
             're': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/loaders?\.swf/i
         },
         'youku_player': {
-            'player': 'http://playbeta.net/swf/player.swf',
+            'player': refD + 'player.swf',
             're': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/q?player[^\.]*\.swf/i
         },
         'ku6': {
-            'player': 'http://playbeta.net/swf/ku6.swf',
+            'player': refD + 'ku6.swf',
             're': /http:\/\/player\.ku6cdn\.com\/default\/common\/player\/\d{12}\/player\.swf/i
         },
         'ku6_out': {
-            'player': 'http://playbeta.net/swf/ku6_out.swf',
+            'player': refD + 'ku6_out.swf',
             're': /http:\/\/player\.ku6cdn\.com\/default\/out\/\d{12}\/player\.swf/i
         },
         'iqiyi': {
-            'player0': 'http://playbeta.net/swf/iqiyi_out.swf',
-            'player1': 'http://playbeta.net/swf/iqiyi5.swf',
-            'player2': 'http://playbeta.net/swf/iqiyi.swf',
-            're': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/((Main)?Player_.*|1355f98c2359))\.swf/i
+            'player0': refD + 'iqiyi_out.swf',
+            'player1': refD + 'iqiyi5.swf',
+            'player2': refD + 'iqiyi.swf',
+            're': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/(Main|Coop|share|Enjoy)?(Player[^\.]*|\d+f98c2359))\.swf/i
         },
         'tudou': {
-            'player': 'http://playbeta.net/swf/tudou.swf',
+            'player': refD + 'tudou.swf',
             're': /http:\/\/js\.tudouui\.com\/.*portalplayer[^\.]*\.swf/i
         },
         'tudou_olc': {
-            'player': 'http://playbeta.net/swf/olc_8.swf',
+            'player': refD + 'olc_8.swf',
             're': /http:\/\/js\.tudouui\.com\/.*olc[^\.]*\.swf/i
         },
         'tudou_sp': {
-            'player': 'http://playbeta.net/swf/sp.swf',
+            'player': refD + 'sp.swf',
             're': /http:\/\/js\.tudouui\.com\/.*\/socialplayer[^\.]*\.swf/i
         },
         'letv': {
-                'player': 'http://playbeta.net/swf/letv.swf',
+                'player': refD + 'letv.swf',
                 're': /http:\/\/.*letv[\w]*\.com\/(hz|.*\/((?!(Live|seed|Disk))(SDK)?(?!Live)[\w]{4}|swf))Player*\.swf/i
         },
         'letv_live': {
-            'player': 'http://playbeta.net/swf/letvlive.swf',
+            'player': refD + 'letvlive.swf',
             're': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/\d+\/newplayer\/LivePlayer\.swf/i
         },
         'letvpccs': {
@@ -57,27 +59,27 @@ ghost.prototype = {
                 're': /http:\/\/www\.le(tv)?\.com\/.*\/playerapi\/pccs_(?!(.*live|sdk)).*_?(\d+)\.xml/i
         },
         'pptv': {
-            'player': 'http://playbeta.net/swf/pptv.swf',
+            'player': refD + 'pptv.swf',
             're': /http:\/\/player.pplive.cn\/ikan\/.*\/player4player2\.swf/i
         },
         'pplive': {
-            'player': 'http://playbeta.net/swf/pptvLive.swf',
+            'player': refD + 'pptvLive.swf',
             're': /http:\/\/player.pplive.cn\/live\/.*\/player4live2\.swf/i
         },
         'sohu': {
-           'player': 'http://playbeta.net/swf/sohulive.swf',
+           'player': refD + 'sohu_live.swf',
            're': /http:\/\/tv\.sohu\.com\/upload\/swf\/(?!(ap|56)).*\d+\/(main|PlayerShell)\.swf/i
         },
         'sohu_liv': {
-           'player': 'http://playbeta.net/swf/sohulive.swf',
+           'player': refD + 'sohu_live.swf',
            're': /http:\/\/\d+\.\d+\.\d+\.\d+(:\d+)?(\/test)?\/(testplayer|player|webplayer)\/(main|main\d|playershell)\.swf/i
         },
         'pps': {
-            'player': 'http://playbeta.net/swf/pps.swf',
+            'player': refD + 'pps.swf',
             're': /http:\/\/www\.iqiyi\.com\/player\/cupid\/.*\/pps[\w]+.swf/i
         },
         'ppsiqiyi': {
-            'player': 'http://playbeta.net/swf/iqiyi_out.swf',
+            'player': refD + 'iqiyi_out.swf',
             're': /http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/PPSMainPlayer.*\.swf/i
         },  
         'ppslive': {
@@ -85,23 +87,23 @@ ghost.prototype = {
             're': /http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/am.*\.swf/i
         },      
         '17173': {
-            'player': 'http://playbeta.net/swf/17173_Player_file.swf',
+            'player': refD + '17173_Player_file.swf',
             're': /http:\/\/f\.v\.17173cdn\.com\/\d+\/flash\/Player_file\.swf/i                         
         },
         '17173_out': {
-            'player': 'http://playbeta.net/swf/17173_Player_file_out.swf',
-        're': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_file_(custom)?out\.swf/i
+            'player': refD + '17173_Player_file_out.swf',
+            're': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_file_(custom)?out\.swf/i
         },          
         '17173_stream_customOut': {
-            'player': 'http://playbeta.net/swf/17173_Player_stream_out.swf',
-        're': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_stream_(custom)?Out\.swf/i
+            'player': refD + '17173_Player_stream_out.swf',
+            're': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_stream_(custom)?Out\.swf/i
         },          
         '17173_live': {
-            'player': 'http://playbeta.net/swf/17173_Player_stream.swf',
+            'player': refD + '17173_Player_stream.swf',
             're': /http:\/\/f\.v\.17173cdn\.com\/\d+\/flash\/Player_stream(_firstpage)?\.swf/i
         },
         'baiduAD': {
-            'player': 'http://playbeta.net/swf/baiduAD.swf',
+            'player': refD + 'baiduAD.swf',
             're': /http:\/\/list\.video\.baidu\.com\/swf\/advPlayer\.swf/i
         }
     },
