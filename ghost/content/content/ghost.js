@@ -31,7 +31,7 @@ ghost.prototype = {
             'player0': refD + 'iqiyi_out.swf',
             'player1': refD + 'iqiyi5.swf',
             'player2': refD + 'iqiyi.swf',
-            're': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/(Main|Coop|share|Enjoy)?(Player[^\.]*|\d+f98c2359))\.swf/i
+            're': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/((Main)?Player_.*|[\d]{4}[\w]{4}[\d]{4}))\.swf/i
         },
         'tudou': {
             'player': refD + 'tudou.swf',
