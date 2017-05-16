@@ -13,11 +13,11 @@ ghost.prototype = {
     SITES: {
         'youku_loader': {
             'player': refD + 'loader.swf',
-            're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/.*\/loaders?\.swf/i
+            're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/swf\/.*\/loaders?\.swf/i
         },
         'youku_player': {
             'player': refD + 'player.swf',
-            're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/.*\/q?player.*\.swf/i
+            're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/swf\/.*\/q?player.*\.swf/i
         },
         'ku6': {
             'player': refD + 'ku6.swf',
@@ -35,7 +35,7 @@ ghost.prototype = {
         },
         'tudou': {
             'player': refD + 'tudou.swf',
-            're': /http:\/\/js\.tudouui\.com\/.*portalplayer[^\.]*\.swf/i
+            're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/custom\/.*\/q?player.*\.swf/i
         },
         'tudou_olc': {
             'player': refD + 'olc_8.swf',
@@ -53,9 +53,9 @@ ghost.prototype = {
             'player': refD + 'letvlive.swf',
             're': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/\d+\/newplayer\/LivePlayer\.swf/i
         },
-        'letvpccs': {
-                'player': 'http://www.le.com/cmsdata/playerapi/pccs_sdk_20141113.xml',
-                're': /http:\/\/www\.le(tv)?\.com\/.*\/playerapi\/pccs_(?!(.*live|sdk)).*_?(\d+)\.xml/i
+        'letvsdk': {
+            'player': refD + 'letvsdk.swf',
+            're': /http:\/\/player\.letvcdn\.com\/.*\/newplayer\/LetvPlayerSDK\.swf/i
         },
         'pptv': {
             'player': refD + 'pptv.swf',
